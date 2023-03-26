@@ -28,6 +28,7 @@ public class GameField extends JPanel implements ActionListener { // панел�
     public GameField(){ // конструктор
         setBackground(Color.cyan);
         loadImages();
+        initGame();
     }
     public void initGame(){
         dots =3;
@@ -36,7 +37,7 @@ public class GameField extends JPanel implements ActionListener { // панел�
             x[i]=48-i*Dot_SIZE; // начальная позиция змейки Кратная 16!!!!!
             y[i]=48;
         }
-        timer = new Timer(250, (ActionListener) this); // 250 - время перемещения из 1 клетки в другую
+        timer = new Timer(250,  this); // 250 - время перемещения из 1 клетки в другую
         timer.start();
         createApple();
     }
@@ -86,5 +87,6 @@ public class GameField extends JPanel implements ActionListener { // панел�
         if(inGame){
             move();
         }
+        repaint();
     }
 }
